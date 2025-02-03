@@ -18,6 +18,8 @@
     "vite": "^6.0.11"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.2",
     "@vitejs/plugin-react": "^4.3.4",
     "react": "^19.0.0",
@@ -26,7 +28,11 @@
   },
   "baseUrl": "./src",
   "paths": {
-    "@components/*": ["components/*"],
-    "@pages/*": ["pages/*"]
+    "@components/*": [
+      "components/*"
+    ],
+    "@pages/*": [
+      "pages/*"
+    ]
   }
 }
