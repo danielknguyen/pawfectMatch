@@ -14,6 +14,7 @@ const TypographyStyle = {
 
 const linkStyle = {
   textDecoration: "none",
+  fontWeight: "bold",
   color: "inherit",
 };
 
@@ -34,7 +35,7 @@ export const Navbar = ({ title, isLoggedIn }: NavbarProps) => {
     <Box sx={boxStyle}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={TypographyStyle}>
+          <Typography variant="h4" component="div" sx={TypographyStyle}>
             <a href="/" style={linkStyle}>
               {title}
             </a>
