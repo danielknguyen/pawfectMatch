@@ -8,6 +8,6 @@ export const authApi = () => ({
   },
 
   logout: async () => {
-    return apiInstance.get("/auth/logout");
+    return apiInstance.post("/auth/logout", {});
   }
 })
