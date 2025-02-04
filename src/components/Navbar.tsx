@@ -21,16 +21,20 @@ const linkStyle = {
 interface NavbarProps {
   title: string;
   isLoggedIn: boolean;
+  logout: () => void;
 }
 
+
 /**
- * A navigation bar with a title and a login/logout button.
- * @param {{ title: string; isLoggedIn: boolean }} props
- * @prop {string} title The title of the navbar.
- * @prop {boolean} isLoggedIn Whether or not the user is logged in.
- * @returns {JSX.Element}
+ * A component that renders a navigation bar with a title and a button
+ * to login or logout, depending on whether the user is logged in or not.
+ *
+ * @param {string} title The title of the page.
+ * @param {boolean} isLoggedIn Whether the user is logged in or not.
+ * @param {function} logout A function to call when the user logs out.
+ * @returns {ReactElement} The navigation bar component.
  */
-export const Navbar = ({ title, isLoggedIn }: NavbarProps) => {
+export const Navbar = ({ title, isLoggedIn, logout }: NavbarProps) => {
   return (
     <Box sx={boxStyle}>
       <AppBar position="static" color="inherit">
@@ -40,9 +44,16 @@ export const Navbar = ({ title, isLoggedIn }: NavbarProps) => {
               {title}
             </a>
           </Typography>
-          <Button color="inherit" href={isLoggedIn ? "/logout" : "/login"}>
-            {isLoggedIn ? "Logout" : "Login"}
-          </Button>
+          {!isLoggedIn && (
+            <Button color="inherit" href="/login">
+              Login
+            </Button>
+          )}
+          {isLoggedIn && (
+            <Button color="inherit" onClick={logout}>
+              Logout
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
