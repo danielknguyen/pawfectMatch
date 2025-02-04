@@ -10,7 +10,8 @@ export default defineConfig({
     alias: {
       components: "/src/components",
       pages: "/src/pages",
-      redux: "/src/redux",
+      store: "/src/store",
+      services: "/src/services",
     },
   },
 });
