@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 
 export const App = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated)
-  
-  console.log("isAuthenticated: ", isAuthenticated)
 
   return (
     <>
