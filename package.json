@@ -27,7 +27,8 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.29.0",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0"
   },
   "baseUrl": "./src",
   "paths": {
@@ -37,8 +38,11 @@
     "@pages/*": [
       "pages/*"
     ],
-    "@redux/*": [
-      "redux/*"
+    "@store/*": [
+      "store/*"
+    ],
+    "@services/*": [
+      "services/*"
     ]
   }
 }
