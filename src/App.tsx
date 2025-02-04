@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LoginPage } from "pages/LoginPage";
-import { HomePage } from "pages/HomePage";
+import { SearchPage } from "pages/SearchPage";
 import { Navbar } from "components/Navbar";
 import { selectIsAuthenticated } from "store/selectors/authSelectors";
 import { useSelector } from "react-redux";
@@ -30,7 +30,7 @@ export const App = () => {
       <Router>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<SearchPage />} />
         </Routes>
       </Router>
     </>
