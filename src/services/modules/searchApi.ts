@@ -30,7 +30,7 @@ export const searchApi = () => ({
     return apiInstance.post("/dogs", ids);
   },
 
-  fetchDogsByBreeds: async () => {
+  fetchDogBreeds: async () => {
     return apiInstance.get("/dogs/breeds");
   },
 
