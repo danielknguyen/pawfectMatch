@@ -1,0 +1,3 @@
+export const SET_FILTERS = "SET_FILTERS";
+export const UPDATE_FILTERS = "UPDATE_FILTERS";
+export const RESET_FILTERS = "RESET_FILTERS";
