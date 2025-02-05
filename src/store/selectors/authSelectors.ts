@@ -1,4 +1,4 @@
-import { RootState } from "store/reducers/rootReducers";
+import { RootState } from "store/reducers/rootReducer";
 
 export const selectIsAuthenticated = (state: RootState): boolean =>
   state.auth.isAuthenticated;
