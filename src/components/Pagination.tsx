@@ -19,6 +19,7 @@ export const Pagination = ({ total, size = 25, onChange }: PaginationProps) => {
         count={Math.ceil(total / size)}
         onChange={onChange}
         sx={paginationStyles}
+        color="primary"
       />
     </Box>
   ) : (
