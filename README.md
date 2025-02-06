@@ -2,7 +2,7 @@
 
 PawfectMatch is a shelter dog adoption website
 
-Preview: [https://pawfectmatch-nwci.onrender.com](https://pawfectmatch-sck7.onrender.com/)
+Preview: https://pawfectmatch-sck7.onrender.com
 
 ## Getting Started
 
