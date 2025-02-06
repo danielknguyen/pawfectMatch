@@ -3,7 +3,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Chip from "@mui/material/Chip";
 
 const BoxStyle = {
   minWidth: 120,
@@ -14,7 +13,6 @@ interface SelectDropdownProps {
   value: string | string[];
   onChange: (value: any) => void;
   options: string[];
-  multiple?: boolean;
 }
 
 export const SelectDropdown = ({
@@ -22,7 +20,6 @@ export const SelectDropdown = ({
   value,
   onChange,
   options,
-  multiple = false,
 }: SelectDropdownProps) => {
   const handleChange = (event: SelectChangeEvent<typeof value>) => {
     onChange(event.target.value);
@@ -35,8 +32,7 @@ export const SelectDropdown = ({
         <Select
           labelId={`${label}-select-label`}
           id={`${label}-select`}
-          multiple={multiple}
-          value={value}
+          value={Array.isArray(value) ? value[0] : value}
           label={label}
           onChange={handleChange}
         >
