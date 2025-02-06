@@ -32,7 +32,7 @@ export const SelectDropdown = ({
         <Select
           labelId={`${label}-select-label`}
           id={`${label}-select`}
-          value={Array.isArray(value) ? value[0] : value}
+          value={Array.isArray(value) ? value[0] ?? "" : value ?? ""}
           label={label}
           onChange={handleChange}
         >
