@@ -51,6 +51,7 @@ export const SearchPage = () => {
   const favorites = useSelector(selectFavorites);
 
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     (async () => {
@@ -66,6 +67,8 @@ export const SearchPage = () => {
         const dogSearchResults = await dogSearch.json();
 
         dispatch(fetchDogsSuccess({ ...dogSearchResults }));
+
+        setPage(1);
       } catch (error) {
         dispatch(fetchDogsFailure(error as string));
       }
@@ -96,6 +99,8 @@ export const SearchPage = () => {
     const dogSearchResults = await dogSearch.json();
 
     dispatch(fetchDogsSuccess(dogSearchResults));
+
+    setPage(page);
   };
 
   const handleOpeningFavorites = () => {
@@ -124,6 +129,7 @@ export const SearchPage = () => {
         total={searchResults.total}
         size={filters.size}
         onChange={handlePageChange}
+        page={page}
       />
       <FavoriteDogsSidebar
         open={isFavoritesOpen}

@@ -10,9 +10,15 @@ interface PaginationProps {
   total: number;
   size?: number;
   onChange: (event: React.ChangeEvent<unknown>, page: number) => void;
+  page: number;
 }
 
-export const Pagination = ({ total, size = 25, onChange }: PaginationProps) => {
+export const Pagination = ({
+  total,
+  size = 25,
+  onChange,
+  page = 1,
+}: PaginationProps) => {
   return total > 0 ? (
     <Box display="flex" justifyContent="center">
       <MuiPagination
@@ -20,6 +26,7 @@ export const Pagination = ({ total, size = 25, onChange }: PaginationProps) => {
         onChange={onChange}
         sx={paginationStyles}
         color="primary"
+        page={page}
       />
     </Box>
   ) : (
