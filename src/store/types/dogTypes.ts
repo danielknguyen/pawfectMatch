@@ -3,6 +3,9 @@ import {
   FETCH_DOGS_SUCCESS,
   FETCH_DOGS_BY_ID_SUCCESS,
   FETCH_DOGS_FAILURE,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+  CLEAR_FAVORITES,
 } from "store/types/dogActionTypes";
 
 export interface Dog {
@@ -24,6 +27,7 @@ export interface DogSearchResults {
 export interface DogState {
   dogs: Record<string, Dog>;
   searchResults: DogSearchResults;
+  favorites: Record<string, Dog>;
   error: string | null;
 }
 
@@ -46,8 +50,25 @@ export interface FetchDogsByIdSuccessAction {
   payload: Dog[];
 }
 
+export interface AddFavoriteAction {
+  type: typeof ADD_FAVORITE;
+  payload: Dog;
+}
+
+export interface RemoveFavoriteAction {
+  type: typeof REMOVE_FAVORITE;
+  payload: string;
+}
+
+export interface ClearFavoritesAction {
+  type: typeof CLEAR_FAVORITES;
+}
+
 export type DogActions =
   | FetchDogsRequestAction
   | FetchDogsSuccessAction
   | FetchDogsFailureAction
-  | FetchDogsByIdSuccessAction;
+  | FetchDogsByIdSuccessAction
+  | AddFavoriteAction
+  | RemoveFavoriteAction
+  | ClearFavoritesAction;

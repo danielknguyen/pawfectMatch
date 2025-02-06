@@ -20,3 +20,5 @@ export const selectPrevPage = (state: RootState) =>
   state.dogs.searchResults.prev;
 
 export const selectDogsError = (state: RootState) => state.dogs.error;
+
+export const selectFavorites = (state: RootState) => state.dogs.favorites;
