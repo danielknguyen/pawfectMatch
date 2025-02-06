@@ -40,6 +40,7 @@ export const SearchPage = () => {
 
   if (!isAuthenticated) {
     window.location.href = "/login";
+    return;
   }
 
   const dispatch = useAppDispatch();
