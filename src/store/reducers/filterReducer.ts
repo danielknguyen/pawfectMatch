@@ -4,15 +4,13 @@ import {
   UPDATE_FILTERS,
   RESET_FILTERS,
 } from "store/types/filterActionTypes";
+import { Sort } from "store/types/filterTypes";
 
 const initialState: FiltersState = {
   breeds: [],
-  zipCodes: [],
-  ageMin: null,
-  ageMax: null,
   size: 25,
   from: 0,
-  sort: "breed:asc",
+  sort: Sort.Asc,
 };
 
 export const filterReducer = (state = initialState, action: FilterActions) => {
