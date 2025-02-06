@@ -10,12 +10,12 @@ export interface Dog {
   img: string;
   name: string;
   age: number;
-  zipCode: string;
+  zip_code: string;
   breed: string;
 }
 
 export interface DogSearchResults {
-  ids: string[];
+  resultIds: string[];
   total: number;
   next?: string;
   prev?: string;
