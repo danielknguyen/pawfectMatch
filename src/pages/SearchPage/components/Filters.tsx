@@ -65,7 +65,6 @@ export const Filters = () => {
         value={filters.breeds || []}
         onChange={handleBreedChange}
         options={breeds}
-        multiple
       />
       <SelectDropdown
         label="Sort"
