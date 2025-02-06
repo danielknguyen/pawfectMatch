@@ -13,7 +13,12 @@ export const searchApi = () => ({
   }: FiltersState) => {
     const queryParams = new URLSearchParams();
 
-    if (breeds.length) queryParams.append("breeds", breeds.join(","));
+    if (typeof breeds === "string") {
+      queryParams.append("breeds", [breeds]);
+    } else if (breeds.length && Array.isArray(breeds)) {
+      queryParams.append("breeds", breeds.join(","));
+    }
+
     if (size) queryParams.append("size", String(size));
     if (from) queryParams.append("from", String(from));
     if (sort) queryParams.append("sort", `breed:${sort}`);
