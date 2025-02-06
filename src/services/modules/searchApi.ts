@@ -1,27 +1,22 @@
 import { Api } from "services/api";
 import { FiltersState } from "store/types/filterTypes";
+import { Sort } from "store/types/filterTypes";
 
 const apiInstance = new Api();
 
 export const searchApi = () => ({
   search: async ({
     breeds = [],
-    zipCodes = [],
-    ageMin,
-    ageMax,
     size = 25,
     from = 0,
-    sort = "breed:asc",
+    sort = Sort.Asc,
   }: FiltersState) => {
     const queryParams = new URLSearchParams();
 
     if (breeds.length) queryParams.append("breeds", breeds.join(","));
-    if (zipCodes.length) queryParams.append("zipCodes", zipCodes.join(","));
-    if (ageMin !== undefined) queryParams.append("ageMin", String(ageMin));
-    if (ageMax !== undefined) queryParams.append("ageMax", String(ageMax));
     if (size) queryParams.append("size", String(size));
     if (from) queryParams.append("from", String(from));
-    if (sort) queryParams.append("sort", sort);
+    if (sort) queryParams.append("sort", `breed:${sort}`);
 
     return apiInstance.get(`/dogs/search?${queryParams.toString()}`);
   },
@@ -36,5 +31,9 @@ export const searchApi = () => ({
 
   matchDogs: async (ids: string[]) => {
     return apiInstance.post("/dogs/match", ids);
+  },
+
+  fetchByUrl: async (url: string) => {
+    return apiInstance.get(url);
   },
 });
