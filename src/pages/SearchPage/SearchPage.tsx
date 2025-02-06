@@ -19,7 +19,6 @@ import { searchApi } from "services/modules/searchApi";
 const mainStyle = {
   flexGrow: 1,
   p: 3,
-  height: "100vh",
 };
 
 const searchApiInstance = searchApi();
