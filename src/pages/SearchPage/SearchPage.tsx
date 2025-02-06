@@ -27,6 +27,9 @@ const mainStyle = {
 const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
+  overflowX: "auto",
+  gap: 3,
+  marginBottom: 2,
 };
 
 const searchApiInstance = searchApi();
