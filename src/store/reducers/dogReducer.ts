@@ -9,7 +9,7 @@ import { DogState, Dog, DogActions } from "store/types/dogTypes";
 const initialState: DogState = {
   dogs: {},
   searchResults: {
-    ids: [],
+    resultIds: [],
     total: 0,
     next: undefined,
     prev: undefined,
@@ -26,7 +26,7 @@ export const dogReducer = (state = initialState, action: DogActions) => {
       return {
         ...state,
         searchResults: {
-          ids: action.payload.ids,
+          resultIds: action.payload.resultIds,
           total: action.payload.total,
           next: action.payload.next,
           prev: action.payload.prev,
@@ -42,7 +42,7 @@ export const dogReducer = (state = initialState, action: DogActions) => {
 
       return {
         ...state,
-        dogs: { ...state.dogs, ...newDogs },
+        dogs: { ...newDogs },
       };
 
     case FETCH_DOGS_FAILURE:
