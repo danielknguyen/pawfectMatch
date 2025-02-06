@@ -12,7 +12,7 @@ interface CardProps {
   age: number;
   zipCode: string;
   breed: string;
-  onClick: () => void;
+  onClick?: () => void;
   selected?: boolean;
 }
 
@@ -46,7 +46,11 @@ export const Card = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton onClick={onClick} color={selected ? "primary" : "default"}>
+        <IconButton
+          onClick={onClick}
+          color={selected && onClick ? "primary" : "default"}
+          disabled={!onClick}
+        >
           <FavoriteIcon />
         </IconButton>
       </CardActions>
