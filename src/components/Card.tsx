@@ -14,6 +14,7 @@ interface CardProps {
   zipCode: string;
   breed: string;
   onClick: () => void;
+  selected?: boolean;
 }
 
 export const Card = ({
@@ -23,6 +24,7 @@ export const Card = ({
   zipCode,
   breed,
   onClick,
+  selected,
 }: CardProps) => {
   return (
     <MuiCard sx={{ maxWidth: 345 }}>
@@ -47,7 +49,7 @@ export const Card = ({
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <IconButton onClick={onClick}>
+        <IconButton onClick={onClick} color={selected ? "primary" : "default"}>
           <FavoriteIcon />
         </IconButton>
       </CardActions>
