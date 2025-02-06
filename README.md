@@ -1,4 +1,4 @@
-# PawfectMatch
+# PawfectMatch (Fetch Frontend Take-Home Exercise)
 
 PawfectMatch is a shelter dog adoption website
 
