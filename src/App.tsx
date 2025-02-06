@@ -30,12 +30,15 @@ export const App = () => {
 
   /**
    * useEffect hook to check authentication status and handle potential errors.
-   * If the user is authenticated, it performs a search request to verify session validity.
-   * If the request fails, it handles the authentication error by logging the user out.
+   * If the user is authenticated, it performs a search request to verify session validity
+   * at a 1 hour interval. If the request fails, it handles the authentication error by
+   * logging the user out.
    */
   useEffect(() => {
+    let intervalId: number | undefined;
+
     if (isAuthenticated) {
-      (async function checkAuth() {
+      const checkAuth = async () => {
         try {
           const response = await searchApiInstance.search({});
 
@@ -46,8 +49,16 @@ export const App = () => {
         } catch (error) {
           handleAuthError(error, handleLoggingOut);
         }
-      })();
+      };
+
+      intervalId = window.setInterval(checkAuth, 1000 * 60 * 60); // 1 hour
     }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
   }, [isAuthenticated]);
 
   return (
