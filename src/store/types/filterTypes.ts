@@ -6,22 +6,21 @@ import {
 
 export interface FiltersState {
   breeds?: string[];
-  zipCodes?: string[];
-  ageMin?: number | null;
-  ageMax?: number | null;
   size?: number;
   from?: number;
   sort?: string;
 }
 
+export enum Sort {
+  Asc = "asc",
+  Desc = "desc",
+}
+
 export const initialState: FiltersState = {
   breeds: [],
-  zipCodes: [],
-  ageMin: null,
-  ageMax: null,
   size: 25,
   from: 0,
-  sort: "breed:asc",
+  sort: Sort.Asc,
 };
 
 export interface SetFiltersAction {
