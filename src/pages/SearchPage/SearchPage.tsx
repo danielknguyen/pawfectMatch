@@ -14,6 +14,7 @@ import {
 import {
   fetchDogsSuccess,
   fetchDogsByIdSuccess,
+  fetchDogsFailure,
 } from "store/actions/dogActions";
 import { Filters, DogProfilesGrid } from "pages/SearchPage/components";
 import { searchApi } from "services/modules/searchApi";
@@ -52,11 +53,21 @@ export const SearchPage = () => {
 
   useEffect(() => {
     (async () => {
-      const dogSearch = await searchApiInstance.search(filters);
+      try {
+        const dogSearch = await searchApiInstance.search(filters);
 
-      const dogSearchResults = await dogSearch.json();
+        if (!dogSearch.ok) {
+          const error = await dogSearch.json();
+          dispatch(fetchDogsFailure(error.error));
+          return;
+        }
 
-      dispatch(fetchDogsSuccess({ ...dogSearchResults }));
+        const dogSearchResults = await dogSearch.json();
+
+        dispatch(fetchDogsSuccess({ ...dogSearchResults }));
+      } catch (error) {
+        dispatch(fetchDogsFailure(error as string));
+      }
     })();
   }, [filters]);
 
