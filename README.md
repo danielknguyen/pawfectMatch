@@ -44,3 +44,10 @@ Before you begin, ensure that you have the following installed on your machine:
    ```
 
 5. Open your browser and navigate to http://localhost:3000 to access the PawfectMatch website.
+
+6. Login with the following testing credentials:
+
+   - Name: Test
+   - Email: test@test.com
+
+   This will allow you to access the PawfectMatch website.
